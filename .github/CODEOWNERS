@@ -1,7 +1,7 @@
 # Propietarios por carpeta: cada PR lo revisa el otro integrante.
-*                                                   @JUAN_GITHUB
-/src/main/java/co/edu/ucc/alturia/menu/             @JACK_GITHUB
-/src/main/java/co/edu/ucc/alturia/mesas/            @JACK_GITHUB
-/src/main/java/co/edu/ucc/alturia/reservas/         @JACK_GITHUB
-/src/main/java/co/edu/ucc/alturia/reportes/         @JACK_GITHUB
-/src/main/java/co/edu/ucc/alturia/config/DataSeeder.java @JACK_GITHUB
+*                                                   @JuanMaya8
+/src/main/java/co/edu/ucc/alturia/menu/             @Jack-Limas
+/src/main/java/co/edu/ucc/alturia/mesas/            @Jack-Limas
+/src/main/java/co/edu/ucc/alturia/reservas/         @Jack-Limas
+/src/main/java/co/edu/ucc/alturia/reportes/         @Jack-Limas
+/src/main/java/co/edu/ucc/alturia/config/DataSeeder.java @Jack-Limas
