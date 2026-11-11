@@ -30,6 +30,9 @@ exigen el encabezado `Authorization: Bearer <token>`. Los errores devuelven `{ "
 | POST | /api/caja/mesas/{mesaId}/calcular | CAJERO | HU-32 | Vista previa: saldo pendiente y cambio |
 | POST | /api/caja/mesas/{mesaId}/pagos | CAJERO | HU-32 | `{efectivoRecibido, valorTransferencia, referenciaTransferencia}` |
 | POST | /api/sync/eventos | clave `X-Sync-Key` | HU-17 | Solo perfil `cloud` |
+| GET/POST | /api/zonas | todos / ADMIN | HU-06 | Zonas con `mesas` y `capacidad` total · crear `{nombre}` |
+| POST | /api/mesas | ADMINISTRADOR | HU-06 | Ahora exige `zonaId`: `{numero, capacidad, zonaId}` |
+| PATCH | /api/mesas/{id}/zona?zonaId= | ADMINISTRADOR | HU-06 | Mover la mesa a otra zona |
 
 ## WebSocket (STOMP en `/ws`)
 | Tópico | Contenido |
