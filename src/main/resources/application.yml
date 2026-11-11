@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: alturia-backend
+  profiles:
+    default: local
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  jackson:
+    time-zone: America/Bogota
+server:
+  port: 8080
+alturia:
+  # Token fijo de la pantalla de cocina (sesión de pantalla configurada por el administrador, RF-001)
+  kds:
+    token: ${ALTURIA_KDS_TOKEN:kds-cocina-alturia}
+  nlp:
+    url: ${ALTURIA_NLP_URL:http://localhost:8000}
+    timeout-ms: 3000
+  impresion:
+    # modo: consola (imprime en el log, para desarrollo) | red (ESC/POS por TCP 9100)
+    modo: ${ALTURIA_IMPRESION_MODO:consola}
+    host: ${ALTURIA_COMANDERA_HOST:192.168.1.50}
+    puerto: 9100
+  pedidos:
+    minutos-limite-espera: 20
+    segundos-deshacer: 10
+  sync:
+    # URL de la API central; vacío = sin sincronización (modo solo local)
+    url-nube: ${ALTURIA_NUBE_URL:}
+    intervalo-ms: 15000
+  almacenamiento:
+    max-registros-locales: 50000
+    umbral-depuracion: 0.8
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:sqlite:${ALTURIA_DB:./data/alturia.db}
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+---
+spring:
+  config:
+    activate:
+      on-profile: cloud
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/alturia}
+    username: ${DATABASE_USER:alturia}
+    password: ${DATABASE_PASSWORD:alturia}
+alturia:
+  sync:
+    url-nube: ""
